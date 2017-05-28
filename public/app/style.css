@@ -102,8 +102,11 @@ cursor: pointer;
     border-radius: 0px;
     margin: 0 -15px;
     border: 0px;
-    background-color: #919098;
+    background-color: rgb(245,245,245);;
     text-align: center;
+   -moz-box-shadow:    inset 17px 17px 11px -18px rgb(100, 100, 100);
+   -webkit-box-shadow: inset 17px 17px 11px -18px rgb(100, 100, 100);
+   box-shadow:         inset 17px 17px 11px -18px rgb(100, 100, 100);
 }
 
 .cart-fixed{
@@ -134,9 +137,6 @@ cursor: pointer;
   }
 }
 
-
-
-
 .btn-login:hover{
     background-color: #4f4f4f;
     color: #f7f7f7;
@@ -153,11 +153,13 @@ cursor: pointer;
 }
 
 .title-cart{
-	color: #f7f7f7;
+	color: #2a2927;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .login-message, .login-message a{
-  color: #f7f7f7;  
+  color: #2a2927;  
 }
 
 .login-message a{
@@ -169,20 +171,23 @@ cursor: pointer;
 }
 
 .cart-container{
-	color: #ebebeb;
+	color: #2a2927;
+    font-weight: 100;
 	list-style: none;	
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .cart-total{
-  border-top: 1px solid #f7f7f7;
+  border-top: 1px solid #2a2927;
   margin-top: 15px;
   padding-top: 5px;
 }
 
 .btn.btn-checkout{
+  margin-top: 30px;
   border-radius: 0px;
+  font-weight: 100;
   background-color: #ef3634;
   color: #ebebeb;
   border-color: transparent;
@@ -248,6 +253,7 @@ cursor: pointer;
   border-radius: 0 0 2px 2px;
   background-clip: padding-box;
   box-sizing: border-box;
+  font-weight: 100;
 }
 .card .card-content p {
   margin: 0;
@@ -276,16 +282,12 @@ cursor: pointer;
 .order-popup{
     width: 100%;
     height: 100%;
-    position: absolute;
     text-align: center;
     z-index: 1000000;
     visibility: hidden;
 }
 
-.order-popup-animate{
-  animation-name: example;
-  animation-duration: 2s;
-}
+
 
 .order-popup p{
   margin-top: 30vh;
@@ -294,10 +296,38 @@ cursor: pointer;
   font-weight: bold;
 }
 
-@keyframes example {
+.order-popup-animate-open p{
+  visibility: visible; 
+}
+
+.order-popup-animate-open{
+  animation-name: animate-open;
+  animation-duration: 1s;
+  background-color: #011627;
+  color: white;
+  visibility: visible;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.order-popup-animate-close{
+  animation-name: animate-close;
+  animation-duration: 1s;
+  visibility: hidden; 
+  color: transparent; 
+  height: 0%;
+}
+
+@keyframes animate-open {
     0%  {visibility: hidden; color: transparent; height: 0%}
-    10%  {background-color: #011627; color: white; visibility: visible; height: 100%}
-    60%  {background-color: #011627; color: white; visibility: visible; height: 100%}
+    100%  {background-color: #011627; color: white; visibility: visible; height: 100%}
+}
+@keyframes animate-close {
+  0%  {background-color: #011627; color: white; visibility: visible; height: 100%}
   100%  {visibility: hidden; color: transparent; height: 0%;}
 }
 
@@ -310,17 +340,19 @@ cursor: pointer;
 h1, a, li, p {
   font-family: Roboto, sans-serif;
 }
-.header-home-link:hover{
+.header-home-link:hover, .header-home-link:focus{
   text-decoration: none;
+  outline: none;
 }
 
 .header-home-link h1 {
-  font-size: 26px;
+  font-size: 70px;
   background: #A5C4D4;
   color: white;
   padding: 40px 0 40px 30px;
   margin-bottom: 0px;
   margin-top: 0px;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.6);
 }
 
 .nav{

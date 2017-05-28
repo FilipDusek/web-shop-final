@@ -3,7 +3,9 @@ app.controller("mainController", function($scope, $rootScope, $http, Product) {
         $scope.products = data;
     });
     $scope.authMessage = false;
-    $scope.thanksMessage = false;
+    $scope.thanksIn = false;
+    $scope.thanksOut = false;
+    $scope.startup = true;
 
     function refreshCart(){
         var total = 0;
@@ -13,6 +15,11 @@ app.controller("mainController", function($scope, $rootScope, $http, Product) {
         $rootScope.total = total;
     }
 
+    $scope.thanksClose = function (){
+        $scope.thanksIn = false;
+        $scope.thanksOut = true;  
+    }
+
     $scope.checkout = function (){
         //if (true){ // use this condition for testing order submission before the authentication is fully implemented
         if ($rootScope.authenticated){
@@ -20,7 +27,9 @@ app.controller("mainController", function($scope, $rootScope, $http, Product) {
                 function successCallback(reponse){
                     $rootScope.cart = [];
                     refreshCart();
-                    $scope.thanksMessage = true;
+                    $scope.startup = false;
+                    $scope.thanksIn = true;
+                    $scope.thanksOut = false;
                 }).catch(
                 function errorCallback(response) {
                     console.log(response);

@@ -23,8 +23,8 @@
 		</div>
 	</nav>
 </div>
-<div class="order-popup" ng-class="thanksMessage ? 'order-popup-animate':''">
-	<p ng-class="thanksMessage ? 'order-popup-animate':''">Thanks for the order :)</p>
+<div class="order-popup" ng-class="thanksIn?'order-popup-animate-open':(thanksOut?'order-popup-animate-close':'')" ng-click="thanksClose()">
+	<p ng-class="thanksIn?'order-popup-animate-open':(thanksOut?'order-popup-animate-close':'')">Thanks for the order :)</p>
 </div>
 
 <div class="product-container">
