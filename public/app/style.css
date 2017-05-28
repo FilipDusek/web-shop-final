@@ -108,7 +108,13 @@ cursor: pointer;
    -webkit-box-shadow: inset 17px 17px 11px -18px rgb(100, 100, 100);
    box-shadow:         inset 17px 17px 11px -18px rgb(100, 100, 100);
 }
-
+@media only screen and (max-width:767px){
+  .navbar-fixed-side{
+    -moz-box-shadow: inset 0px 0px 10px 1px rgb(100, 100, 100);
+    -webkit-box-shadow: inset 0px 0px 10px 1px rgb(100, 100, 100);
+    box-shadow: inset 0px 0px 10px 1px rgb(100, 100, 100);
+  }
+}
 .cart-fixed{
   position: fixed;
   height: 100vh;
@@ -153,9 +159,11 @@ cursor: pointer;
 }
 
 .title-cart{
-	color: #2a2927;
+  color: #2a2927;
   font-weight: 400;
   margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 30px;
 }
 
 .login-message, .login-message a{
