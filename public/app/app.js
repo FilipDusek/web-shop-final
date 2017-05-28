@@ -4,9 +4,9 @@ var app = angular.module('webshopApp', ['ngRoute', 'ngResource']).run(function($
 	$rootScope.cart = [];
     $rootScope.total = 0;
 
-	$rootScope.signout = function(){
-    	$http.get('auth/signout');
+	$rootScope.logout = function(){
     	$rootScope.authenticated = false;
-    	$rootScope.current_user = '';
+		$rootScope.user = '';
+		$rootScope.token = '';
 	};
 });

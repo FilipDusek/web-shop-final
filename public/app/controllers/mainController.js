@@ -1,45 +1,19 @@
-app.controller("mainController", function($scope, $rootScope, $http, Product) {
+app.controller("mainController", function($scope, $rootScope, $location, $http, Product) {
+    
     Product.query(function(data) {
         $scope.products = data;
     });
+
     $scope.authMessage = false;
-    $scope.thanksIn = false;
-    $scope.thanksOut = false;
-    $scope.startup = true;
-
-    function refreshCart(){
-        var total = 0;
-        for ( var i = 0, _len = $rootScope.cart.length; i < _len; i++ ) {
-            total += $rootScope.cart[i]["amount"] * $rootScope.cart[i]["price"];
-        }
-        $rootScope.total = total;
-    }
-
-    $scope.thanksClose = function (){
-        $scope.thanksIn = false;
-        $scope.thanksOut = true;  
-    }
-
-    $scope.checkout = function (){
-        //if (true){ // use this condition for testing order submission before the authentication is fully implemented
+    
+    $scope.goCheckout = function (){
         if ($rootScope.authenticated){
-            $http.post('/api/users/' + $rootScope.user["_id"] + '/orders', {products: $rootScope.cart, token: $rootScope.token}).then(
-                function successCallback(reponse){
-                    $rootScope.cart = [];
-                    refreshCart();
-                    $scope.startup = false;
-                    $scope.thanksIn = true;
-                    $scope.thanksOut = false;
-                }).catch(
-                function errorCallback(response) {
-                    console.log(response);
-                }
-            );
             $scope.authMessage = false;
+            $location.path('/checkout');
         } else {
             $scope.authMessage = true; 
         }
-    };
+    }
 
     $scope.addToCart = function (index){
         $scope.thanksMessage = false;
@@ -53,5 +27,13 @@ app.controller("mainController", function($scope, $rootScope, $http, Product) {
         	$rootScope.cart[productIndex]["amount"] += 1;
         };
         refreshCart();
+    };
+
+    function refreshCart(){
+        var total = 0;
+        for ( var i = 0, _len = $rootScope.cart.length; i < _len; i++ ) {
+            total += $rootScope.cart[i]["amount"] * $rootScope.cart[i]["price"];
+        }
+        $rootScope.total = total;
     };
 });

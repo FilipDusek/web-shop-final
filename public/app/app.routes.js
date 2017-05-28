@@ -9,7 +9,6 @@ app.config(function($routeProvider){
 		.when('/login', {
 			templateUrl: 'app/views/login.html',
 			controller: 'authController'
-
 		})
 		//the signup display
 		.when('/register', {
@@ -18,5 +17,9 @@ app.config(function($routeProvider){
 		})
 		.when('/about', {
 			templateUrl: 'app/views/about.html'
+		})
+		.when('/checkout', {
+			templateUrl: 'app/views/checkout.html',
+			controller: 'checkoutController'
 		});
 });

@@ -123,7 +123,6 @@ cursor: pointer;
 
 .product-container {
     padding: 15px;
-    width: 75%;
     position: relative;
 }
 
@@ -287,55 +286,61 @@ cursor: pointer;
   text-decoration: none;
 }
 
-.order-popup{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    z-index: 1000000;
-    visibility: hidden;
-    position: fixed;
-}
+/********************************
+ *          CONFIRM             *
+ ********************************/
 
-.order-popup p{
+
+.order-popup p.main-msg{
   margin-top: 30vh;
   font-size: 60px;
-  visibility: hidden;
   font-weight: bold;
 }
 
-.order-popup-animate-open p{
-  visibility: visible; 
+.order-popup p{
+  font-size: 30px;
+  visibility: hidden;
+}
+
+.order-popup{
+  width: 100vw;
+  height: 0vh;
+  top: 0;
+  position: fixed;
+  text-align: center;
+  z-index: 1000000;
+  background-color: #011627;
+  cursor: pointer;
+  color: white;
 }
 
 .order-popup-animate-open{
   animation-name: animate-open;
-  animation-duration: 1s;
-  background-color: #011627;
-  color: white;
-  visibility: visible;
+  animation-duration: 0.25s;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  text-align: center;
-  width: 100%;
-  cursor: pointer;
+}
+
+.order-popup-animate-open p{
+  visibility: visible;
+}
+
+.order-popup-animate-close p{
+  visibility: hidden;
 }
 
 .order-popup-animate-close{
   animation-name: animate-close;
-  animation-duration: 1s;
-  visibility: hidden; 
-  color: transparent; 
-  height: 0%;
+  animation-duration: 0.25s;
+  height: 0vh;
 }
 
 @keyframes animate-open {
-    0%  {visibility: hidden; color: transparent; height: 0%}
-    100%  {background-color: #011627; color: white; visibility: visible; height: 100%}
+    0%  {height: 0vh}
+    100%  {height: 100vh}
 }
 @keyframes animate-close {
-  0%  {background-color: #011627; color: white; visibility: visible; height: 100%}
-  100%  {visibility: hidden; color: transparent; height: 0%;}
+  0%  {height: 100vh}
+  100%  {height: 0vh}
 }
 
 /*  ********************************
@@ -377,6 +382,13 @@ h1, a, li, p {
 }
 .nav > li:hover {
   background: #ebebeb;
+}
+
+/********************************
+ *          CHECKOUT            *
+ ********************************/
+.shipping-info{
+  padding-left: 15px;
 }
 
 

@@ -1,0 +1,33 @@
+<div class="col-sm-push-2 col-sm-8 text-left"> 
+	<h3 class="title-cart">Order review</h3>
+	<ul class="cart-container" ng-repeat="product in cart">
+		<li class="cart-item">
+			<div class="item-data clearfix">
+				<div class="item-name">{{ product.name }} <span ng-show="product.amount > 1">({{product.amount}}x)</span></div>
+				<div class="item-price">{{ product.price }} DKK</div>
+			</div>
+		</li>
+		<li class="cart-item cart-total" ng-if="$last">
+			<div class="item-data clearfix">
+				<div class="item-name">Total</div>
+				<div class="item-price">{{ total }} DKK</div>
+			</div>
+		</li>
+	</ul>
+	<h3 class="title-cart">Shipping information</h3>
+	<div class="shipping-info">
+		<strong>{{user.name}}</strong><br>
+		{{user.address}}<br>
+		{{user.city}}<br>
+		{{user.country}}<br>
+	</div>
+	<div class="text-center">
+		<a class="btn btn-checkout" ng-click="checkout()">Submit the order</a>
+	</div>
+</div>
+
+<div class="order-popup" ng-class="thanksIn?'order-popup-animate-open':(thanksOut?'order-popup-animate-close':'')" ng-click="thanksClose()">
+	<p class="main-msg">Thanks for the order :)</p>
+	<p>It will be delivered to your address in 1-3 days.</p>
+	<p>Click anywhere to get back.</p>
+</div>
