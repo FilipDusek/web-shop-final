@@ -285,9 +285,8 @@ cursor: pointer;
     text-align: center;
     z-index: 1000000;
     visibility: hidden;
+    position: fixed;
 }
-
-
 
 .order-popup p{
   margin-top: 30vh;
