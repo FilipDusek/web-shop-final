@@ -91,6 +91,7 @@ cursor: pointer;
 {
     display: block;
     margin-top: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 /*  ********************************
@@ -166,7 +167,9 @@ cursor: pointer;
 }
 
 .login-message, .login-message a{
-  color: #2a2927;  
+  color: #2a2927; 
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 100; 
 }
 
 .login-message a{
@@ -262,6 +265,9 @@ cursor: pointer;
   box-sizing: border-box;
   font-weight: 100;
 }
+.card-content p{
+  font-family: Roboto, sans-serif;  
+}
 .card .card-content p {
   margin: 0;
   color: inherit;
@@ -350,7 +356,7 @@ cursor: pointer;
 
 
 h1, a, li, p {
-  font-family: Roboto, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;;
 }
 .header-home-link:hover, .header-home-link:focus{
   text-decoration: none;
