@@ -397,6 +397,24 @@ h1, a, li, p {
   padding-left: 15px;
 }
 
+.animate.ng-enter, .animate.ng-leave{
+  transition: 250ms linear all;
+}
 
+.animate.ng-leave{
+  opacity: 1;
+}
+
+.animate.ng-leave.ng-leave-active{
+  opacity: 0;
+}
+
+.animate.ng-enter{
+  opacity: 0;
+}
+
+.animate.ng-enter.ng-enter-active{
+  opacity: 1;
+}
 
 

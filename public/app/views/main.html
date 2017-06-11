@@ -1,14 +1,14 @@
  <div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10 cart-fixed">
 	<nav class="navbar navbar-default navbar-fixed-side">
 		<h3 class="title-cart">Shopping cart</h3>
-		<ul class="cart-container"  ng-repeat="product in cart">
-			<li class="cart-item">
+		<ul class="cart-container">
+			<li class="cart-item animate" ng-repeat="product in cart">
 				<div class="item-data clearfix">
 					<div class="item-name">{{ product.name }} <span ng-show="product.amount > 1">({{product.amount}}x)</span></div>
 					<div class="item-price">{{ product.price }} DKK</div>
 				</div>
 			</li>
-			<li class="cart-item cart-total" ng-if="$last">
+			<li class="cart-item cart-total" ng-if="cart.length > 0">
 				<div class="item-data clearfix">
 					<div class="item-name">Total</div>
 					<div class="item-price">{{ total }} DKK</div>
